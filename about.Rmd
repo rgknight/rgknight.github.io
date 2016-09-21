@@ -1,7 +1,5 @@
 ---
-title: "About this site"
-author: "Ryan Knight"
-date: "September 19, 2016"
+title: "About"
 output: html_document
 ---
 

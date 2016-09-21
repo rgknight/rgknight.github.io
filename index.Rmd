@@ -1,8 +1,20 @@
 ---
-title: "Test"
-author: "Ryan Knight"
-date: "September 19, 2016"
 output: html_document
 ---
 
-Hello, world!
+<!--html_preserve-->
+<div class="container-fluid bg-1 text-center">
+    <div class="row">
+        <div class="col-lg-12">
+                <h1>Ryan Knight</h1>
+                <p>Social Impact Strategy - Data Analytics - Innovation</p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-2 text-center">
+  <p>This site is a collection of projects and experiments</p>
+</div>
+
+
+<!--/html_preserve-->
+
