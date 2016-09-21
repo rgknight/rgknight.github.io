@@ -7,7 +7,7 @@ output: html_document
     <div class="row">
         <div class="col-lg-12">
                 <h1>Ryan Knight</h1>
-                <p>Social Impact Strategy - Data Analytics - Innovation</p>
+                <p>Social Impact Strategy - Analytics - Innovation</p>
         </div>
     </div>
 </div>
