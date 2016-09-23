@@ -1,20 +1,32 @@
 ---
-output: html_document
+title: ""
 ---
-
 <!--html_preserve-->
+<style type="text/css">
+
+.main-container {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+}
+
+</style>
 <div class="container-fluid bg-1 text-center">
     <div class="row">
-        <div class="col-lg-12">
-                <h1>Ryan Knight</h1>
+      <div class="col-md-12">
+        <img src="photos/profile.jpg" class="img-circle">
+      </div>
+    <dic class="row">
+        <div class="col-md-12">
+                <h1>Ryan G Knight</h1>
                 <p>Social Impact Strategy - Analytics - Innovation</p>
         </div>
     </div>
+    </div>
 </div>
 <div class="container-fluid bg-2 text-center">
-  <p>This site is a collection of projects and experiments</p>
+  <p>This site is a selection of projects and experiments</p>
 </div>
 
-
 <!--/html_preserve-->
-

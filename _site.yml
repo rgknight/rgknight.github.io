@@ -4,9 +4,15 @@ output:
     theme: "yeti"
     css: css/style.css
 navbar:
-  title: "Ryan Knight"
+  title: "Ryan G Knight"
   left:
-    - text: "Home"
-      href: index.html
-    - text: "About"
-      href: about.html
+    - text: "Projects"
+      menu: 
+        - text: "Micro Enterprise Growth"
+  right:
+    - icon: fa-github
+      href: https://github.com/rgknight
+    - icon: fa-twitter
+      href: https://twitter.com/rgknight
+    - icon: fa-medium
+      href: https://medium.com/@rgknight
