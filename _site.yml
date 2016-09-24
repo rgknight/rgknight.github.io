@@ -9,6 +9,7 @@ navbar:
     - text: "Projects"
       menu: 
         - text: "Micro Enterprise Growth"
+          href: microenterprises.html
   right:
     - icon: fa-github
       href: https://github.com/rgknight
@@ -16,3 +17,5 @@ navbar:
       href: https://twitter.com/rgknight
     - icon: fa-medium
       href: https://medium.com/@rgknight
+    - icon: fa-linkedin
+      href: https://www.linkedin.com/in/ryan-knight-98179140

@@ -6,3 +6,7 @@
     background-color: #D8D8D8;
     color: #444444;
 }
+.topbottom-buffer {
+  margin-top: 50px; 
+  margin-bottom: 50px;
+}
