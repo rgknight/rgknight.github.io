@@ -1,13 +1,15 @@
 output_dir: "."
 output: 
   html_document:
-    theme: "yeti"
+    theme: "flatly"
     css: css/style.css
 navbar:
   title: "Ryan G Knight"
   left:
     - text: "Projects"
       menu: 
+        - text: "Understanding PARCC Scores"
+          href: parcc.html
         - text: "Micro Enterprise Growth"
           href: microenterprises.html
   right:

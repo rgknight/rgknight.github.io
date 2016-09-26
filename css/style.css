@@ -10,3 +10,13 @@
   margin-top: 50px; 
   margin-bottom: 50px;
 }
+.container-600px {
+  max-width: 600px;
+}
+body{ /* Normal  */
+   font-size: 18px;
+}
+p {margin-bottom:1.5em}
+#TOC li {
+  font-size:14px;
+}
