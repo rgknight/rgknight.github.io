@@ -4,3 +4,5 @@ output: html_document
 ---
 
 More about this site.
+
+<button type="button" class="btn btn-primary">Primary</button>

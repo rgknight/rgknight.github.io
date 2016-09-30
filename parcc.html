@@ -12,7 +12,7 @@
 <meta name="author" content="Ryan Knight" />
 
 
-<title>How PARCC Test Scores Are Made</title>
+<title>Undesrtanding PARCC</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,9 +20,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -72,7 +69,7 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css\style.css" type="text/css" />
 
 </head>
 
@@ -169,100 +166,6 @@ $(document).ready(function () {
 
 
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.9em;
-  padding-left: 5px;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -327,93 +230,24 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">How PARCC Test Scores Are Made</h1>
+<h1 class="title toc-ignore">Undesrtanding PARCC</h1>
 <h4 class="author"><em>Ryan Knight</em></h4>
 
 </div>
 
 
-<p>The goal of this guide is to help contextualize where PARCC scores come from and what they mean, starting with a fundamental discussion of testing. Most of the PARCC information here comes from the technical report on the 2015 administration of PARCC.</p>
-<div id="measuring-student-ability" class="section level1">
-<h1>Measuring Student Ability</h1>
-<p>Imagine: A student arrives at school on state testing day. She sits down, pencil in hand, ready to take the PARCC. As she is about to start, we split the world into 30 parallel universes. Everything is the same in every universe up to the moment she starts taking the test.</p>
-<p>Does she get the same result in every universe?</p>
-<p>No.</p>
-<p>A student’s test result is an estimate of their true ability with measurement error.</p>
-<p>The same child taking the same test under the same conditions in identical universes would get different results. It is important to understand this measurement error is random.</p>
-<p>It’s not whether the student had breakfast that morning – that would affect the student’s ability. It’s not whether the test has a cultural reference accessible to only a certain portion of the population – that would bias the estimate of ability. It’s just random. Measurement error is present in every test, no matter how well designed.</p>
-<p>How much does this measurement error matter? Probably a lot. As one benchmark, PARCC estimates that about one in three students would have been classified at a different level if they had used a different test booklet.</p>
-<p>A test is a noisy estimate of an individual student’s ability. It’s not that it contains no information about student ability. It’s just imprecise information.</p>
-<p>To return to our student split across 30 universes: any one universe would not yield a precise estimate of her ability. However, if we could look across all universes, in some she would be lucky and perform high, and others she would be unlucky and perform low. Because measurement error is random, all of this variation would tend to average out, and her average performance across all universes would be close to her true ability.</p>
-<p>Unfortunately, we don’t have multiple universes available to us. We get only one result per student. However, we do have many students.</p>
-<p>PARCC results are intended to be aggregated across many students to reduce the influence of measurement error. As sample size increases, the average performance approximates the true average ability.</p>
-<p>A classroom average is a better estimate of the classroom’s average ability than an individual student’s results are of individual student ability. A grade level’s results are a better estimate than a classroom. A school’s results are a better estimate than a grade level. A district’s results are a better estimate than a school. A state’s results are a better estimate than a district.</p>
-<div id="what-does-all-this-mean" class="section level2">
-<h2>What does all this mean?</h2>
-<p>There are three practical take-aways for schools.</p>
-<div id="many-of-the-patterns-that-we-see-are-noise" class="section level3">
-<h3>(1) Many of the ‘patterns’ that we see are noise</h3>
-<p><img src="images/parcc/constellations.png" width="300" /> <img src="images/parcc/polls.png" width="300" /></p>
-<p>A typical threshold for statistical significance in education research is that there should be a 95% probability that the results are not due to chance. This means that there is a 1 in 20 (5%) probably that ‘statistically significant’ results are due to chance. In a class of 20 students, it’s likely that at least one student will have outlier results that are due to chance.</p>
+<p>The goal of this project is to help contextualize where PARCC scores come from and what they mean, starting with a fundamental discussion of testing. Most of the PARCC information here comes from the technical report on the 2015 administration of PARCC.</p>
+<div id="part-1-measuring-student-ability" class="section level2">
+<h2><a href="parcc_ability.html">Part 1: Measuring Student Ability</a></h2>
+<p>Part 1 offers an general introduction to what tests measure, not specific to PARCC.</p>
 </div>
-<div id="larger-samples-reduce-the-influence-of-noise" class="section level3">
-<h3>(2) Larger samples reduce the influence of noise</h3>
-<table style="width:51%;">
-<colgroup>
-<col width="12%" />
-<col width="11%" />
-<col width="27%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Tosses</th>
-<th align="center">Heads</th>
-<th align="center">Probality of Heads</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">4</td>
-<td align="center">1</td>
-<td align="center">0.25</td>
-</tr>
-<tr class="even">
-<td align="center">100</td>
-<td align="center">64</td>
-<td align="center">0.64</td>
-</tr>
-<tr class="odd">
-<td align="center">1000</td>
-<td align="center">582</td>
-<td align="center">0.582</td>
-</tr>
-<tr class="even">
-<td align="center">10000</td>
-<td align="center">4989</td>
-<td align="center">0.4989</td>
-</tr>
-</tbody>
-</table>
-<p>Even at the school and grade level, it is likely that we tend to underestimate the influence of random variation. However, larger samples sizes are more likely to be stable, so we can have more confidence in trends at the teacher, grade and school level.</p>
-</div>
-<div id="using-more-information-reduces-the-influence-of-noise" class="section level3">
-<h3>(3) Using more information reduces the influence of noise</h3>
-<blockquote>
-<p>What’s more, the value of any test depends on how likely you are to be having a significant problem in the first place. If you have crushing chest pain and shortness of breath, you start with a high likelihood of having a serious heart condition, and an electrocradiogram as significant value. A heart tracing that doesn’t look quite right usually means trouble. Buf, if you have no signs or symptoms of heart trouble, an electrocardiogram adds no useful information; a heart tracing that doesn’t look quite right is mostly noise.</p>
-</blockquote>
-<ul>
-<li><a href="http://www.newyorker.com/magazine/2015/05/11/overkill-atul-gawande">Atul Gawande in the New Yorker</a></li>
-</ul>
-<p>We should not consider test results in isolation. We should bring in additional information whenever possible. If a grade level has a high number of suspension, low attendance rates, poorly kept gradebooks, teachers with documented performance issues, low interim assessment performance and low PARCC results, it is not likely that the results are noise. If a grade level has great student culture, rigorous classwork, high BA performance and lackluster PARCC performance, we should revise our opinion of that grade level downward, but we should not conclude that the year was a failure.</p>
-<p>We should be rigorous in our approach to integrating outside information. If outside information is incorrect, it makes our conclusions worse. Triangulating results using data is usually better than triangulating using impressions or assumptions. But even impressions and assumptions can sometimes add value.</p>
-</div>
-</div>
+<div id="part-2-the-parcc-test" class="section level2">
+<h2><a href="parcc_test.html">Part 2: The PARCC Test</a></h2>
+<p>Part 2 provides an introduction to how the PARCC test is structured and scored.</p>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 

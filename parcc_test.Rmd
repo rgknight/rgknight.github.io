@@ -1,0 +1,97 @@
+---
+title: "The PARCC Test"
+author: "Ryan Knight"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+---
+#Part 2 of Understanding PARCC
+
+This is Part 2 of my Understanding PARCC series. Part 1 covered the practical implications of measurement error. Part 2 is an introduction to the PARCC test. 
+
+##Introduction
+PARCC attempts to measure performance across the Common Core State Standards for a given grade level. PARCC’s high level goal is to provide a valid estimate of college and career readiness. 
+
+PARCC administers multiple test forms within a grade level and content area. That is, students in the same grade level are seeing different items when they take PARCC. Despite the best efforts of PARCC, the test forms have some variation in difficulty. Therefore, PARCC cannot report the raw % correct -- it would mean something different depending on which test form the student had. If the student had a test form that was on the easier side, the raw % correct would overstate their performance. 
+
+To correct for these differences, and to make scores comparable across years, PARCC reports results using a scaled score, which ranges from 650 to 850. The 650 to 850 scale has no inherent meaning; it’s just what PARCC chose. They could have chosen 3 to 10,000 just as easily. 
+
+Scaled scores are grouped into 5 performance levels. The cut score for performance levels varies slightly  by grade level and content area.
+
+Example 2015 cut scores
+
+```{r, echo=FALSE}
+example = data.frame(
+  Level = c("Level 1", "Level 2", "Level 3", "Level 4", "Level 5"),
+  `Cut Score Rule` = c("Always 650", "Always 700", "Always 725", "Always 750", "Derived" ),
+  `Grade 6 Math` = c("650", "700", "725", "750", "788" ),
+  `Grade 7 Math` = c("650", "700", "725", "750", "786")
+)
+
+pander::pander(example, format="markdown", padding = 1)
+```
+
+This means that a student scoring 787 in 6th grade and 787 again in 7th grade would be considered Level 4 in 6th grade and Level 5 in 7th grade. Thus, while scaled scores are very similar across grades and content, there are some differences in the meaning of a scaled score across grade levels.
+
+##Test Forms
+PARCC repeats certain groups of items across test forms and across years. This is done to improve the ability to help build a consistent comparison across test forms and across years. PARCC estimates that 60-68% of students in ELA and 60-70% of students in Math  would be classified at the same level if they took the same test using different test forms. That is, roughly 1 in 3 students would be classified at a different level if they had received a different test form and about 10% of students would move in/out of Meeting Expectations. Measuring student ability is hard.
+
+##Item Design and Scoring
+PARCC designs items through a process of internal drafting with several layers of expert review. 
+
+All items are tested with students prior to being used for scoring purposes. Some items were tested in optional field tests and others were integrated into earlier administrations as unscored field test items. PARCC cuts items based on the field test, and also cuts some live items based a review of item statistics.
+
+Constructed response items were scored by a team of trained human scorers. The scorers needed to correctly score an example set of responses (after receiving training) within an acceptable range of tolerance to be selected as a scorer. 10% of items were rescored, either by humans or sometimes by a robot. 
+
+The rescoring did not affect student scores -- PARCC always used the original score, never the rescore. The rescore was only to monitor scorer ability and provide information about item reliability. Scorers with rescoring metrics below certain thresholds received additional training. 
+
+##Item statistics
+PARCC calculated various “classical” item statistics to assist in their scoring process, build their knowledge bank about items, and inform future item development. 
+
+PARCC also used this review to identify bad items that should be removed from the scaled score calculation. The image below shows the technical criteria for removing items. In addition to these strict rules, PARCC removed some items because of “item performance, technical scoring issues, content concerns, multiple correct answers, or no correct answers”. In grades 3-8, very few items were excluded, usually zero or one. PARCC sometimes used a special model for certain items instead of throwing them out when the standard model wasn’t a good fit.
+
+>1. A weighted polyseris correlation less than 0.0
+>2. An average item score of 0.0
+>3. 100% of the students have the same item score, such as:
+  > a. 100% omitted the item,
+  > b. 100% received the same score
+  > c. 100% of the responses were at the same score after collapsing score categories due to low frequencies
+  > d. 100% of the responses were not presented or reached
+>4. Insufficient sample sizes for the seleted IRT model combinations (i.e., 300 for the 2PL/GPC).
+>5. High omit rates (i.e., greater than 50%) on one or more forms (usually an indication that an item may not be functioning correctly on all forms)
+
+##Percent Correct on PARCC
+Interestingly, the item statistics tables in the technical report include the overall average % correct on PARCC. Unfortunately, the % correct for the 2016 administration is not yet available, but the table below shows the average % correct on PARCC in 2015.
+
+Table: Average Correct on PARCC Paper Based Tests in 2015
+```{r, echo=FALSE}
+example <- tibble::frame_data(
+  ~Grade, ~`ELA PBA`, ~`ELA EOY`, ~`Math PBA`, ~`Math EOY`,
+  3, 0.45, 0.38, 0.42, 0.50,
+  4, 0.44, 0.41, 0.47, 0.50,
+  5, 0.45, 0.38, 0.38, 0.48,
+  6, 0.47, 0.44, 0.40, 0.39,
+  7, 0.45, 0.49, 0.35, 0.35,
+  8, 0.49, 0.45, 0.31, 0.32
+)
+
+pander::pander(example, format="markdown", padding = 1)
+```
+
+Notice that:
+
+###The average % correct is “low”
+
+The most common interim assessments typically have a much higher percent correct. A school could likely calibrate where their students fall relative to the population of PARCC test takers, and use this as a very rough benchmark of what PARCC level rigor means for their interim assessments.
+
+###One of the reasons to scale scores is to avoid making people feel sad.
+
+It would not do for parents to get reports saying that their students got 35% correct on PARCC. If you are aiming for PARCC rigor on your interim assessments, you should consider scaling it such that students don’t feel bad about a score of 45% correct if the PARCC average was 32% correct.
+
+###PARCC probably missed their intended average percent correct.
+
+PARCC tried to have a range of item difficulty within a test. I would guess their intended range was evenly distributed around 0.5, so they would prefer a test-level average of 0.5. These scores are rather different from 0.5. Measuring student ability is hard.
+
+<a href="parcc_ability.html"><button type="button" class="btn btn-primary">Back to Part 1: Measuring Ability</button></a>

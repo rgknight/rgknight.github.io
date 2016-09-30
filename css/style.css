@@ -20,3 +20,6 @@ p {margin-bottom:1.5em}
 #TOC li {
   font-size:14px;
 }
+.btn > a {
+    color:white;
+}
