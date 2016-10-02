@@ -94,4 +94,4 @@ It would not do for parents to get reports saying that their students got 35% co
 
 PARCC tried to have a range of item difficulty within a test. I would guess their intended range was evenly distributed around 0.5, so they would prefer a test-level average of 0.5. These scores are rather different from 0.5. Measuring student ability is hard.
 
-<a href="parcc_ability.html"><button type="button" class="btn btn-primary">Back to Part 1: Measuring Ability</button></a>
+<a href="parcc.html"><button type="button" class="btn btn-primary">Back to Part 1: Measuring Ability</button></a>
