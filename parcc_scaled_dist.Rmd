@@ -1,0 +1,22 @@
+---
+title: "Distriction of PARCC Scaled Scores"
+output: html_document
+---
+See the [PARCC Technical Report](http://www.parcconline.org/assessments/test-design/research) for complete versions
+
+#ELA Scaled Score Distributions {# ela}
+
+![](images/parcc/ss_dist_ela_36.png)
+![](images/parcc/ss_dist_ela_78.png)
+
+#Math Scaled Score Distributions {# math}
+
+![](images/parcc/ss_dist_math.png)
+
+#Reading Scaled Score Distributions {# reading}
+
+![](images/parcc/ss_dist_reading.png)
+
+#Writing Scaled Score Distributions {# writing}
+
+![](images/parcc/ss_dist_writing.png)

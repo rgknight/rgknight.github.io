@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>PARCC Scaled Scores</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<link rel="stylesheet"
+      href="site_libs/highlight/default.css"
+      type="text/css" />
+<script src="site_libs/highlight/highlight.js"></script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.9em;
+  padding-left: 5px;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ryan G Knight</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="parcc.html">Understanding PARCC Scores</a>
+    </li>
+    <li>
+      <a href="microenterprises.html">Micro Enterprise Growth</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/rgknight">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/rgknight">
+    <span class="fa fa-twitter"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://medium.com/@rgknight">
+    <span class="fa fa-medium"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/ryan-knight-98179140">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">PARCC Scaled Scores</h1>
+
+</div>
+
+
+<p><em>This is Part 4 in my series on ‘Understanding PARCC’. <a href="parcc.html">Part 1</a> covered measuring ability and <a href="parcc_test.html">Part 2</a> provided an overview of the PARCC test. <a href="parcc_irt.html">Part 3</a> is an introduciton to Item Response Theory.</em></p>
+<div id="setting-cut-scores" class="section level1">
+<h1>Setting Cut Scores</h1>
+<p>To transform the ability estimates from PARCC’s Item Response Theory model into scaled scores, PARCC essentially had a bunch of experts take the test pretending to be students at different performance levels.</p>
+<p>PARCC came up with written descriptions of what characteristics a student would have if they were at each of the 5 performance levels. They then asked a panel of experts to review a bunch of items and say, for each item, how many points they thought a student at each level would score if they were to take the item, based on the written description of students at that level.</p>
+<p>PARCC used the information from this process as if it were student responses to the actual items, and calculated IRT ability estimates for these theoretical students.</p>
+<p>PARCC chose 700 as the cut score for Level 2 and 750 as the cut score for level 4. That is, the consensus raw scores from the professors-pretending-to-be-students process were given a 700 for the level 2 imaginary students and a 750 for the level 4 imaginary students. They then used these anchors to proportionally transform the IRT results into scaled scores.</p>
+<p>PARCC then arbitrarily set the Level 3 cut score to 725, and set the Level 5 cut score by grade level based on the distribution of IRT results. This means that the 725 Level 3 cut score was somewhat arbitrary, and PARCC recommends caution in using the Level 3 cut score because there may not have been actual students at the level of IRT performance that translates to 725.</p>
+<p>PARCC also set a cut score for the maximum and minimum scores on the test. I am having difficulty finding information on how these were set, but the take away is that earning a 650 does not mean that you got zero questions correct and earning an 850 does not mean that you got 100% of questions correct – the raw score cutoff for an 850 is less than 100% of items correct.</p>
+<p>PARCC went through separate but related scaling processes for creating the subclaim scores.</p>
+<p>PARCC’s technical report shows an example raw score to scaled score conversion table (excerpt <a href="parcc_rawscaled.html">here</a>).</p>
+</div>
+<div id="scaled-score-distributions" class="section level1">
+<h1>Scaled Score Distributions</h1>
+<p>PARCC’s technical report has helpful charts showing the distribution of scaled scores (excerpt <a href="parcc_scaled_dist.html">here</a>). There are a couple of things to note about these charts.</p>
+<p>The distributions of scaled scores are approximately normal, which means that a student’s percentile has a nonlinear relationship to their scaled score.</p>
+<p>Looking at the charts, many of the distributions look tight and shifted to the left– the charts are tall, skinny, and to the left of the middle. This means that relatively few students scored very high on PARCC.</p>
+<p>The distributions are quite different across grade and content levels. For example, in <a href="parcc_scaled_dist.html#ela">third grade ELA</a> the curve is relatively fat. Many students scored high and many students scored low.</p>
+<p>In <a href="parcc_scaled_dist.html#ela">sixth grade ELA</a>, the curve is might tighter. Students were clustered around the average score. The top 20th percentile of students would have a lower score in 6th grade ELA than in 3rd grade ELA, and the bottom 20% of students would have a higher score in 6th grade ELA than in 3rd grade ELA.</p>
+<p>The scaled <a href="parcc_scaled_dist.html#writing">score distributions for writing</a> are less normal. This is likely for two reasons: there were fewer writing items, and the test was normed too high to get information about all students. The bump on the left hand side is characteristic of tests where many students score zero or close to zero.</p>
+</div>
+<div id="interpreting-scaled-scores" class="section level1">
+<h1>Interpreting scaled scores</h1>
+<p>PARCC scaled scores are an ordinal measure, which means they provide information about relative performance. A score of 750 is relatively higher than a score of 740. How much higher? We can’t say.</p>
+<p>We do know that 750 is the cut score for Level 4 and 700 is the cut score for Level 2, and that these cut score was set based on how a panel of experts thought that Level 2 and 4 students would perform. So we can say that 740 is relatively lower than the expert consensus for Level 4 performance and relatively higher than the expert consensus for Level 2 performance.</p>
+<p>An example: based on the distributions of scaled scores, let’s say that 1% of students scored 850 and 2% of students scored 840 or above. Therefore a 10 point gain in your scaled score from 840 to 850 would move you from the top 2% of students to the top 1% of students.</p>
+<p>Let’s also say that 50% of students scored 735 or higher and 40% of students scored 740 or higher. In this case, a 5 point improvement would increase your percentile by 10 percentage points.</p>
+<p>Which is more meaningful? An improvement of 10 scaled score points or an improvement of 10 percentile points? I don’t know. They are both ordinal scales.</p>
+<p>Relative differences in scores depend on the difficulty of the material assessed. Let’s say a test assessed three skills, reciting the alphabet, recognizing letters, and reading fluently. The test is scaled from 0 to 3, where 0 is no literacy and 3 is reading fluently. While they are the same in our scale, the true difference between a 1 and a 2 (reciting the alphabet versus recognizing letters) is smaller than the difference between a 2 and 3 (recognizing letters versus reading fluently) because it is much hard to go from recognizing letter to reading fluently.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>But what if we think that recognizing letters is a much more critical skill for success in life, and we weigh that skill much higher? Then the gap could be reversed, and we could weigh an improvement from 1 to 2 more than an improvement from 2 to 3.</p>
+<div id="take-aways" class="section level2">
+<h2>Take-aways</h2>
+<p>It would be overly-constraining to only make ordinal claims about student performance – we should not become paralyzed by the technical details. Some guidance could be:</p>
+<ol style="list-style-type: decimal">
+<li><p>Large differences are probably more meaningful than small differences, even if we can’t say precisely how much more.</p></li>
+<li><p>We might be especially worried about particularly low scores. Very low scoring students could be even further behind than they seem if they are missing foundational material – it is likely a nonlinear difference.</p></li>
+<li><p>We might be particularly proud of very high scoring students. If they mastered all of the material, that is at least impressive, if not every impressive in the case of nonlinearities in difficulty of content.</p></li>
+</ol>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Example <a href="https://www.aeaweb.org/articles?id=10.1257/jep.30.3.85">source</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

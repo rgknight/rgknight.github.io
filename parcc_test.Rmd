@@ -1,15 +1,13 @@
 ---
 title: "The PARCC Test"
-author: "Ryan Knight"
 output: 
   html_document:
     toc: true
     toc_float: true
     toc_depth: 2
 ---
-#Part 2 of Understanding PARCC
 
-This is Part 2 of my Understanding PARCC series. Part 1 covered the practical implications of measurement error. Part 2 is an introduction to the PARCC test. 
+This is Part 2 of my Understanding PARCC series. [Part 1](parcc.html) covered the practical implications of measurement error. Part 2 is an introduction to the PARCC test. 
 
 ##Introduction
 PARCC attempts to measure performance across the Common Core State Standards for a given grade level. PARCC’s high level goal is to provide a valid estimate of college and career readiness. 

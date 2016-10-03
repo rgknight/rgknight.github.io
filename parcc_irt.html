@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Item Response Theory</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<link rel="stylesheet"
+      href="site_libs/highlight/default.css"
+      type="text/css" />
+<script src="site_libs/highlight/highlight.js"></script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.9em;
+  padding-left: 5px;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ryan G Knight</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="parcc.html">Understanding PARCC Scores</a>
+    </li>
+    <li>
+      <a href="microenterprises.html">Micro Enterprise Growth</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/rgknight">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/rgknight">
+    <span class="fa fa-twitter"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://medium.com/@rgknight">
+    <span class="fa fa-medium"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/ryan-knight-98179140">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Item Response Theory</h1>
+
+</div>
+
+
+<p><em>This is Part 3 in my series on ‘Understanding PARCC’. <a href="parcc.html">Part 1</a> covered measuring ability and <a href="parcc_test.html">Part 2</a> provided an overview of the PARCC test.</em></p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Part 3 is an introduction to item response theory (IRT), which is the class of techniques that PARCC uses to calculate their scaled scores. You can skip this section if you already know how IRT models are calibrated. If you are a practitioner who is trying to interpret PARCC test scores, I would highly recommend a furrow-browed read of this section – a deep understanding of what PARCC can and can’t tell us is only possible if you have a conceptual understanding of the IRT models underlying the scores.</p>
+<p>The basic idea of item response theory is that a student’s score on an item is combination of the student’s true ability and the features of that item. A foundational concept is the item characteristic curve (ICC), which plots student ability against the probability of answering an item correctly. Different characteristics of the shape of the line in the ICC are used as parameters in IRT models.</p>
+<p><img src="images/parcc/icc.gif" align="middle"></p>
+<p><br />
+There are three foundational IRT models, and the difference between them is the test features they consider.</p>
+<div id="the-1-parameter-model-considers-the-difficulty-of-the-item" class="section level3">
+<h3>The 1 parameter model considers the difficulty of the item</h3>
+<p>The difficulty of an item is likelihood that a student of a given ability would get an item correct. The idea is that an item is hard if only higher ability students get it correct, and easy if low ability students get it correct. Difficulty is a point on the item characteristic curve. In IRT calculations, difficulty is expressed as the level of ability that would have a 50% chance of getting the item correct (that is the value of x where y = 0.5 in the picture above).</p>
+</div>
+<div id="the-2-parameter-model-considers-the-difficulty-and-the-discrimination-of-the-item" class="section level3">
+<h3>The 2 parameter model considers the difficulty and the discrimination of the item</h3>
+<p>The discrimination of an item refers to the ability of an item to different between students of different ability. Discrimination is the slope of the ICC at a given point. A steeper slope means that the item is more discriminatory – students with slightly less ability would be much less likely to get the item correct, and students with slightly more ability would be much more likely to get the item correct. In IRT calculations, discrimination is (basically) the slope of the ICC at the difficulty parameter (that is, the slope of the line when y = 0.5)</p>
+</div>
+<div id="the-3-parameter-model-considers-the-difficulty-discrimination-and-guessability-or-the-item" class="section level3">
+<h3>The 3 parameter model considers the difficulty, discrimination and guessability or the item</h3>
+<p>The guessability is the chance that a student with no ability could guess the correct answer. It is most commonly used with multiple choice tests. In IRT calculations, the guessability is (basically) the lower asymptote of the ICC.</p>
+</div>
+<div id="interpretation-of-irt-scores" class="section level2">
+<h2>Interpretation of IRT Scores</h2>
+<p>One of the primary reasons that item response theory is popular is that, under certain assumptions, it will yield the same estimate of student ability if that student took a test that is easy or a test that is hard. On an easy test, we would adjust the values of difficulty and discrimination to match the characteristics of that test, allowing us to generate the same estimate of student ability as we would on a harder test.</p>
+<p>Thus, PARCC can use item response theory to generate comparable scores for students who used different test forms, even though the test forms have different levels of difficulty.</p>
+</div>
+</div>
+<div id="parccs-irt-model" class="section level1">
+<h1>PARCC’s IRT Model</h1>
+<p>PARCC uses the 2 parameter model to generate test scores, with some modifications to allow for items that are worth more than one point (the basic model assumes that each item is worth 0 or 1 points).</p>
+<p>PARCC tested the three parameter model, but found that it wasn’t better. There are relatively few multiple choice items on PARCC and the guessability of PARCC items is low.</p>
+<p>Two bodies separately calibrated the IRT models used and a third body compared the results. It was an expensive, careful process.</p>
+<p>Calibration is difficult because the first time you estimate the model, you know neither the test parameters nor the underlying student ability.</p>
+<p>Calibration is therefore usually done iteratively. You assume some starting value for student ability, then estimate the test parameters, then use the estimated test parameters to estimate student ability, then using the student ability estimates to re-estimate the test parameters, and so on, until the improvements from additional re-estimation are small.</p>
+<p>There is randomness in the calibration process. Two calibrations can yield different results, and therefore different estimates of student ability. This is why PARCC was so careful about calibration – they wanted to make sure that student scaled scores were not overly sensitive to the calibration process.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
