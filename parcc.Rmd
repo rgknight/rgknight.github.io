@@ -8,13 +8,14 @@ output:
     toc_depth: 2
 ---
 
-This is Part 1 in the series [Undesrtanding PARCC](parcc.html). The goal of this section is to offer a general introduction into what tests measure and discuss the practical implications of measurement error for schools. I created this document because the process helped me to better understand the PARCC scores. I am interested in your thoughts / feedback -- [connect with me](index.html) to share your perspectives. 
+This is Part 1 in the series [Undesrtanding PARCC](parcc.html). The goal of this section is to offer a general introduction into what tests measure and discuss the practical implications of measurement error for schools. I created this document because the process helped me to better understand the PARCC scores. I am interested in your thoughts / feedback -- [connect with me](https://twitter.com/rgknight) to share your perspectives. 
 
 Read subsequent sections
 
 - [Part 2: The PARCC Test](parcc_test.html)
 - [Part 3: Item Response Theory](parcc_irt.html)
 - [Part 4: PARCC Scaled Scores](parcc_scaledscore.html)
+- [Part 5: Massachusetts Framework](parcc_ma.html)
 
 #Measuring Student Ability
 
