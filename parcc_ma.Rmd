@@ -1,6 +1,5 @@
 ---
 title: "Massachusetts Framework"
-output:
 output: 
   html_document:
     toc: true
@@ -73,7 +72,7 @@ While the CPI provides more information than % A/P, it does not have the same in
 
 #Student Growth Percentile 
 
-The student growth percentile (SGP) is commonly associated with MCAS, but its calculation actually doesn’t depend on the test.
+The student growth percentile (SGP) is commonly associated with MCAS, but its calculation actually doesn’t depend on the test. The SGP is calculated using [IRT thetas](parcc_irt.html), so the SGP can be calculated cleanly across MCAS and PARCC. This also means that even students who get a perfect scaled score on MCAS/PARCC can have different SGPs (because a range of thetas can map to the same scaled score).
 
 A student’s SGP is their percentile among all students with the same score history. That is, student performance is compared to all other students with the same history of scores, going back as far as possible. 
 
@@ -89,7 +88,7 @@ First, we care about all children, not just the median child, so an examination 
 
 Second, student growth percentile does not take into account student characterics other than their test score history. Certain student characteristics may make them less likely to grow in the future, even after controlling for test score history. [For example](http://users.nber.org/~dynarski/w22474.pdf), with the same score history, students deep in poverty are less likely to improve in the future than students experiencing transient poverty. Thus, it may be more difficult to have a high SGP if you have many students in deep poverty. 
 
-Nonetheless, SGP is an improvement over % A/P, CPI or % Meeting Expectations on PARCC, as it is a measure of learning rather than a cross section of performance. 
+Nonetheless, SGP is a meaningful improvement over % A/P, CPI or % Meeting Expectations on PARCC, as it is a measure of learning rather than a cross section of performance. 
 
 There is [very good evidence](http://www.rajchetty.com/chettyfiles/value_added.pdf) that students who have teachers with high value add scores have improved life outcomes, often dramatically so, even if the students were initially low performing and even if their scores later returned to a normal trajectory.
 

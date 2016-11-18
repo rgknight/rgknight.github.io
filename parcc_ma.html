@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Massachusetts Framework</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<link rel="stylesheet"
+      href="site_libs/highlight/default.css"
+      type="text/css" />
+<script src="site_libs/highlight/highlight.js"></script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.9em;
+  padding-left: 5px;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ryan G Knight</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="parcc.html">Understanding PARCC Scores</a>
+    </li>
+    <li>
+      <a href="microenterprises.html">Micro Enterprise Growth</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/rgknight">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/rgknight">
+    <span class="fa fa-twitter"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://medium.com/@rgknight">
+    <span class="fa fa-medium"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/ryan-knight-98179140">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Massachusetts Framework</h1>
+
+</div>
+
+
+<p><em>This is Part 5 in my series on ‘Understanding PARCC’. <a href="parcc.html">Part 1</a> covered measuring ability and <a href="parcc_test.html">Part 2</a> provided an overview of the PARCC test. <a href="parcc_irt.html">Part 3</a> is an introduciton to Item Response Theory. <a href="parcc_scaledscore.html">Part 4</a> reviewed how PARCC creates scaled scores.</em></p>
+<p>The Massachusetts Department of Elementary and Secondary Education (DESE) supplements the PARCC scaled score and levels with a variety of metrics based off of the MCAS framework.</p>
+<div id="mcas-scaled-score" class="section level1">
+<h1>MCAS Scaled Score</h1>
+<p>MCAS scaled scores are even numbers between 200 to 280. Similar to PARCC, this range was chosen by DESE and has no inherent meaning.</p>
+<p>On MCAS, scaled scores are estimated using the 3 parameter item response theory model. MCAS repeats items from year-to-year and uses an anchoring technique to create a common scale over time (it is possible that PARCC could have switched to a method like this in 2016 now that they have multiple years of results).</p>
+<p>DESE does not perform their own IRT analysis of the PARCC data.</p>
+<p>Instead, scaled scores are calculated using “equipercentile linking”, which sounds much fancier than it is. Basically, DESE says: in a typical year, X% of students get a 280, so we’ll give the top X% of performers on PARCC a 280. The next Y% of students score 278, so we’ll give the next Y% of performers on PARCC a 278.</p>
+<p>A student’s MCAS scaled score on PARCC is therefore a function of their percentile on PARCC. If the overall ability of the entire grade level across the state changed, it this change would not be reflected in the MCAS Scaled Score.</p>
+</div>
+<div id="mcas-performance-levels" class="section level1">
+<h1>MCAS Performance Levels</h1>
+<p>MCAS scaled scores are divided into four performance levels:</p>
+<table style="width:56%;">
+<colgroup>
+<col width="27%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Performance.Level</th>
+<th align="center">Scaled.Score.Range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Warning</td>
+<td align="center">200-218</td>
+</tr>
+<tr class="even">
+<td align="center">Needs Improvement</td>
+<td align="center">220-238</td>
+</tr>
+<tr class="odd">
+<td align="center">Proficient</td>
+<td align="center">240-258</td>
+</tr>
+<tr class="even">
+<td align="center">Advanced</td>
+<td align="center">260-280</td>
+</tr>
+</tbody>
+</table>
+<p>It’s possible (likely?) that when MCAS was originally developed, they may have used a process similar to PARCC to set the cut scores relative to benchmarks of expert opinion. However, MCAS cut scores have been around for so long that they have become their own benchmark – enough people are sufficiently familiar with MCAS performance levels that there is inherent meaning in a school being 75% Advanced / Proficient.</p>
+<p>The percentage of students scoring advanced or proficient (% A/P) is a common school accountability metric used by districts and schools. The primary advantage of this metrics is its ease of interpretation: % A/P is the percent of students who are meeting state standards.</p>
+<p>However, the percent advanced/proficient is a very basic metric that has many drawbacks. For example:</p>
+<ul>
+<li>%A/P doesn’t take into account a student’s incoming levels. If a student was advanced in the previous year and proficient this year, the school would not be penalized, even though that student regressed. (SGP addresses this)</li>
+<li>%A/P doesn’t penalize a school for having students who are very low performing. (CPI addresses this)</li>
+<li>%A/P doesn’t reward a school for having students who are very high performing. (Average scaled score addresses this)</li>
+</ul>
+<p>A consequence of these drawbacks is that %A/P accountability goals can lead to targeting of “bubble students”. If a school is rewarded differentially for students just above the proficiency threshold, the school has an incentive to ignore students who are already above the threshold, or who are too low to have hope in reaching the threshold.</p>
+<p>The interpretation of the MCAS performance levels is still relatively straightforward of PARCC: it is the percent of students in above the typical state standard percentile.</p>
+</div>
+<div id="mcas-cpi" class="section level1">
+<h1>MCAS CPI</h1>
+<p>DESE reports a “composite performance index” (CPI) for all students. The cut scores for CPI values are</p>
+<table style="width:71%;">
+<colgroup>
+<col width="34%" />
+<col width="29%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Performance.Level</th>
+<th align="center">Scaled.Score.Range</th>
+<th align="center">CPI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Warning - Low</td>
+<td align="center">200-208</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">Warning - High</td>
+<td align="center">210-218</td>
+<td align="center">25</td>
+</tr>
+<tr class="odd">
+<td align="center">Needs Improvement - Low</td>
+<td align="center">220-238</td>
+<td align="center">50</td>
+</tr>
+<tr class="even">
+<td align="center">Needs Improvement - High</td>
+<td align="center">230-238</td>
+<td align="center">75</td>
+</tr>
+<tr class="odd">
+<td align="center">Proficient or Advanced</td>
+<td align="center">240-280</td>
+<td align="center">100</td>
+</tr>
+</tbody>
+</table>
+<p>A school’s average CPI is used more in state-level school accountability discussions than in student performance evaluation. CPI provides more information than its competitor metric, the % of student advanced or proficient (% A/P), because it penalizes schools for performance below proficient.</p>
+<p>CPI awards no bonus for students at advanced. A study of 10th grade MCAS showed that a very large percentage of students who score advanced go to college, so there is reason to believe that the percent of students at advanced is a meaningful piece of information.</p>
+<p>While the CPI provides more information than % A/P, it does not have the same intuitive meaning, and the interpretation of CPI is even more complicated with PARCC. In a PARCC world, CPI is best thought of as a unitless metric with a minimum of 0 and a maximum of 100.</p>
+</div>
+<div id="student-growth-percentile" class="section level1">
+<h1>Student Growth Percentile</h1>
+<p>The student growth percentile (SGP) is commonly associated with MCAS, but its calculation actually doesn’t depend on the test. The SGP is calculated using <a href="parcc_irt.html">IRT thetas</a>, so the SGP can be calculated cleanly across MCAS and PARCC. This also means that even students who get a perfect scaled score on MCAS/PARCC can have different SGPs (because a range of thetas can map to the same scaled score).</p>
+<p>A student’s SGP is their percentile among all students with the same score history. That is, student performance is compared to all other students with the same history of scores, going back as far as possible.</p>
+<p>The median SGP for a classroom is a statistically valid value added measure – it is a measure of how much the median student grew relative to all other students with the same score history.</p>
+<p>Indeed, <a href="https://www.aeaweb.org/articles?id=10.1257/aer.102.5.1805">some researchers</a> actually prefer median SGP or related measures to more complicated value add models.</p>
+<p>Similarly, the median SGP for a school is a value add measure for that school and the median SGP for a district is a value add measure for the district.</p>
+<p>There are some drawbacks to median SGP as an accountability measure.</p>
+<p>First, we care about all children, not just the median child, so an examination of the distribution of all SGPs for the classroom would yield more information.</p>
+<p>Second, student growth percentile does not take into account student characterics other than their test score history. Certain student characteristics may make them less likely to grow in the future, even after controlling for test score history. <a href="http://users.nber.org/~dynarski/w22474.pdf">For example</a>, with the same score history, students deep in poverty are less likely to improve in the future than students experiencing transient poverty. Thus, it may be more difficult to have a high SGP if you have many students in deep poverty.</p>
+<p>Nonetheless, SGP is a meaningful improvement over % A/P, CPI or % Meeting Expectations on PARCC, as it is a measure of learning rather than a cross section of performance.</p>
+<p>There is <a href="http://www.rajchetty.com/chettyfiles/value_added.pdf">very good evidence</a> that students who have teachers with high value add scores have improved life outcomes, often dramatically so, even if the students were initially low performing and even if their scores later returned to a normal trajectory.</p>
+<div id="what-is-a-good-sgp" class="section level2">
+<h2>What is a good SGP?</h2>
+<p>At the individual student level, a good SGP is easy to interpret: An SGP of 90 is the 90th percentile of growth, so you could set the ‘good’ cutoff based on whatever percentile you feel is good.</p>
+<p>As the sample size increases, however, the median SGP tends to converge to the population value, which, across the state, is 50. For example, if the state had one very large school district with all of the students in the state except for one, that district’s median SGP would by definition be 50. Same if the district had every student except for 2 students.</p>
+<p>The more students you have, the harder it is to achieve a very high or very low SGP.</p>
+<p>A classroom with a median SGP of 90 would be higher than the 90th percentile of all classrooms. A grade level with a median SGP of 90 would be among the best grade levels in the state, and it’s nearly impossible for an entire school to have a median SGP of 90.</p>
+<p>The tables below demonstrate how difficult it is for a school to get an outlier SGP. In ELA in 2015, a school with a median SGP of 50 would be in the 49th percentile of all schools. A 5 SGP point improvement to 55 would put the school in the top 69% of all schools – a 20 percentage point improvement. In contrast, improving from 65 to 70 would yield only a 4 point improvement in the school’s percentile, from the top 93% of schools to the top 97% of schools.</p>
+<p>ELA - Percentile of a School with an SGP of</p>
+<table style="width:93%;">
+<colgroup>
+<col width="9%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Year</th>
+<th align="center">SGP of 50</th>
+<th align="center">SGP of 55</th>
+<th align="center">SGP of 60</th>
+<th align="center">SGP of 65</th>
+<th align="center">SGP of 70</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">2010</td>
+<td align="center">48%</td>
+<td align="center">64%</td>
+<td align="center">83%</td>
+<td align="center">91%</td>
+<td align="center">96%</td>
+</tr>
+<tr class="even">
+<td align="center">2011</td>
+<td align="center">49%</td>
+<td align="center">65%</td>
+<td align="center">82%</td>
+<td align="center">91%</td>
+<td align="center">96%</td>
+</tr>
+<tr class="odd">
+<td align="center">2012</td>
+<td align="center">48%</td>
+<td align="center">68%</td>
+<td align="center">82%</td>
+<td align="center">91%</td>
+<td align="center">96%</td>
+</tr>
+<tr class="even">
+<td align="center">2013</td>
+<td align="center">48%</td>
+<td align="center">66%</td>
+<td align="center">81%</td>
+<td align="center">92%</td>
+<td align="center">97%</td>
+</tr>
+<tr class="odd">
+<td align="center">2014</td>
+<td align="center">49%</td>
+<td align="center">68%</td>
+<td align="center">81%</td>
+<td align="center">91%</td>
+<td align="center">96%</td>
+</tr>
+<tr class="even">
+<td align="center">2015</td>
+<td align="center">49%</td>
+<td align="center">69%</td>
+<td align="center">83%</td>
+<td align="center">93%</td>
+<td align="center">97%</td>
+</tr>
+</tbody>
+</table>
+<p>Math - Percentile of a School with an SGP of</p>
+<table style="width:93%;">
+<colgroup>
+<col width="9%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Year</th>
+<th align="center">SGP of 50</th>
+<th align="center">SGP of 55</th>
+<th align="center">SGP of 60</th>
+<th align="center">SGP of 65</th>
+<th align="center">SGP of 70</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">2010</td>
+<td align="center">46%</td>
+<td align="center">62%</td>
+<td align="center">79%</td>
+<td align="center">90%</td>
+<td align="center">95%</td>
+</tr>
+<tr class="even">
+<td align="center">2011</td>
+<td align="center">48%</td>
+<td align="center">64%</td>
+<td align="center">78%</td>
+<td align="center">88%</td>
+<td align="center">93%</td>
+</tr>
+<tr class="odd">
+<td align="center">2012</td>
+<td align="center">47%</td>
+<td align="center">64%</td>
+<td align="center">77%</td>
+<td align="center">88%</td>
+<td align="center">94%</td>
+</tr>
+<tr class="even">
+<td align="center">2013</td>
+<td align="center">41%</td>
+<td align="center">57%</td>
+<td align="center">73%</td>
+<td align="center">85%</td>
+<td align="center">92%</td>
+</tr>
+<tr class="odd">
+<td align="center">2014</td>
+<td align="center">48%</td>
+<td align="center">64%</td>
+<td align="center">78%</td>
+<td align="center">89%</td>
+<td align="center">96%</td>
+</tr>
+<tr class="even">
+<td align="center">2015</td>
+<td align="center">49%</td>
+<td align="center">65%</td>
+<td align="center">80%</td>
+<td align="center">91%</td>
+<td align="center">96%</td>
+</tr>
+</tbody>
+</table>
+<p>The table below shows a similar comparison for grade levels in 2015. As expected, it is somewhat easier to get a high SGP in a grade level than in a school.</p>
+<p>2015 MCAS - Percentile of a grade level with an SGP of <img src="images/parcc/sgp_gradelevel.png" /></p>
+<p>Moreover, it is harder for a large school (or grade) to get a high SGP than a small school (or grade). The chart below shows that, on the 2014 Math MCAS, high SGPS for large schools are extraordinarily rare. (The high organge circle with ~450 students is UP Academy Boston and the high grey circle with ~850 students is Roxbury Prep).</p>
+<p>Math SGP versus Number of Students, 2014 MCAS <img src="images/parcc/sgp_high_math.png" /></p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
