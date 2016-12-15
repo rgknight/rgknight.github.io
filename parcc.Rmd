@@ -1,5 +1,5 @@
 ---
-title: "Undesrtanding PARCC"
+title: "Understanding PARCC"
 author: "Ryan Knight"
 output: 
   html_document:
