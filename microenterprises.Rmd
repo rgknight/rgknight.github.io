@@ -1,32 +1,9 @@
 ---
-title: ''
+title: 'Microenterprise Growth'
 output: html_document
 ---
-<div class="container container-600px">
-#Microenterprise Growth
 
-The motivating question for this project was: 
-
-##What would it take to transform a microenterprise into a small business?
-
-We tested a 'gold plated Cadillac' intervention of large (in relative terms) grants and/or consulting from dynamic management consultants for a group of microenterprise tailors in Accra, Ghana. 
-
-The results were fascinating, if disappointing. The microenterprises invested the grants in stuff they thought would help them grow, but they lost money and stopped investing. The consultants helped the microenterprises experiment with new ways of doing stuff they thought would help them grow, but they lost money and stopped experimenting. In the end, it was as if we were never there.
-
-
-I learned so much through this project. Among many other things, I learned:
-
-- It super competitive to be a microentrepreneur -- it’s very hard to increase differentiation without increasing technical skill
-- I look good in Ghanaian shirts (made by our tailors after the study)
-- The [reluctant entrepreneur theory](http://www.pooreconomics.com/chapters/9-reluctant-entrepreneurs) has merit
-- Managing large research projects is hard
-- Dean and Chris are incredible to work with
-- You can’t get big things done without help. Thank you to everyone at [IPA Ghana](http://www.poverty-action.org/), and particularly to Jonathan Addie
-- Less than inspiring results are harder to package
-
-&nbsp;
-
-##Consulting and capital experiments with microenterprise tailors in Ghana
+#Consulting and capital experiments with microenterprise tailors in Ghana
 
 - Dean Karlan, Ryan Knight and Chris Udry
 
@@ -41,4 +18,21 @@ Journal of Economic Behavior & Organization
 Volume 118, October 2015, Pages 281–302
 Economic Experiments in Developing Countries
 ```
-</div>
+&nbsp;
+
+#What would it take to transform a microenterprise into a small business?
+
+We tested a 'gold plated Cadillac' intervention of large (in relative terms) grants and/or consulting from dynamic management consultants for a group of microenterprise tailors in Accra, Ghana. 
+
+The results were fascinating, if ultimately somewhat disappointing. The microenterprises invested the grants in stuff they thought would help them grow, but they lost money and stopped investing. The consultants helped the microenterprises experiment with new ways of doing stuff they thought would help them grow, but they lost money and stopped experimenting. In the end, it was as if we were never there.
+
+
+Among many other things, through this project, I learned:
+
+- It super competitive to be a microentrepreneur -- it’s very hard to increase product differentiation without increasing technical skill
+- I look good in Ghanaian shirts (made by our tailors after the study)
+- The [reluctant entrepreneur theory](http://www.pooreconomics.com/chapters/9-reluctant-entrepreneurs) has merit
+- Dean and Chris are incredible to work with
+- You can’t get big things done without help. Thank you to everyone at [IPA Ghana](http://www.poverty-action.org/), and particularly to Jonathan Addie
+- Less inspiring results are harder to package
+
